@@ -12,7 +12,7 @@ struct UserListView: View {
     @ObservedObject var viewModel = UserListViewModel()
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ZStack {
                 Color.white.ignoresSafeArea()
                 
