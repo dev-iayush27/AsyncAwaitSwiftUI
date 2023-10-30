@@ -17,9 +17,24 @@ struct UserListView: View {
                 Color.white.ignoresSafeArea()
                 
                 List(viewModel.users ?? [], id: \.id) { user in
-                    VStack(alignment: .leading) {
-                        Text(user.login ?? "")
-                        Text(user.url ?? "")
+                    HStack {
+                        AsyncImage(url: URL(string: user.avatarURL ?? "")) { image in
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .clipShape(Circle())
+                        } placeholder: {
+                            Circle()
+                                .foregroundColor(.teal)
+                        }
+                        .frame(width: 50, height: 50)
+                        
+                        VStack(alignment: .leading) {
+                            Text(user.login?.capitalized ?? "")
+                                .font(.headline)
+                            Text(user.url ?? "")
+                                .font(.subheadline)
+                        }
                     }
                 }
                 .listStyle(.plain)
