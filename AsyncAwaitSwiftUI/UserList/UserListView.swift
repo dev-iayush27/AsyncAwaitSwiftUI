@@ -17,7 +17,10 @@ struct UserListView: View {
                 Color.white.ignoresSafeArea()
                 
                 List(viewModel.users ?? [], id: \.id) { user in
-                    Text(user.url ?? "")
+                    VStack(alignment: .leading) {
+                        Text(user.login ?? "")
+                        Text(user.url ?? "")
+                    }
                 }
                 .listStyle(.plain)
                 .listRowInsets(EdgeInsets())
