@@ -17,15 +17,13 @@ final class UserListViewModel: ObservableObject {
     
     func getUsers() async {
         isLoading = true
-        Task {
-            do {
-                self.users = try await WebService.getUsersData()
-                self.isLoading = false
-            } catch(let error) {
-                userError = UserError.custom(error: error)
-                shouldShowAlert = true
-                isLoading = false
-            }
+        do {
+            self.users = try await WebService.getUsersData()
+            self.isLoading = false
+        } catch(let error) {
+            userError = UserError.custom(error: error)
+            shouldShowAlert = true
+            isLoading = false
         }
     }
 }

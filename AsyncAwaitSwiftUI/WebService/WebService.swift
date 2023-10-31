@@ -17,7 +17,8 @@ final class WebService {
         
         let (data, response) = try await URLSession.shared.data(from: url)
         
-        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+        guard let response = response as? HTTPURLResponse,
+                response.statusCode == 200 else {
             throw UserError.invalidResponse
         }
         
