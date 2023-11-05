@@ -1,5 +1,5 @@
 //
-//  UserListModel.swift
+//  UserModel.swift
 //  AsyncAwaitSwiftUI
 //
 //  Created by Ayush Gupta on 26/10/23.
@@ -7,21 +7,26 @@
 
 import Foundation
 
-// MARK: - User
-struct User: Codable {
-    let login: String?
+struct UserModel: Codable {
     let id: Int?
+    let login: String?
     let nodeID: String?
     let avatarURL: String?
     let gravatarID: String?
-    let url, htmlURL, followersURL: String?
-    let followingURL, gistsURL, starredURL: String?
-    let subscriptionsURL, organizationsURL, reposURL: String?
+    let url: String?
+    let htmlURL: String?
+    let followersURL: String?
+    let followingURL: String?
+    let gistsURL: String?
+    let starredURL: String?
+    let subscriptionsURL: String?
+    let organizationsURL: String?
+    let reposURL: String?
     let eventsURL: String?
     let receivedEventsURL: String?
     let type: String?
     let siteAdmin: Bool?
-
+    
     enum CodingKeys: String, CodingKey {
         case login, id
         case nodeID = "node_id"

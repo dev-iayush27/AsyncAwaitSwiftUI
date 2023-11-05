@@ -10,7 +10,7 @@ import Foundation
 @MainActor
 final class UserListViewModel: ObservableObject {
     
-    @Published var users: [User]?
+    @Published var users: [UserModel]?
     @Published var userError: UserError?
     @Published var shouldShowAlert = false
     @Published var isLoading = false
